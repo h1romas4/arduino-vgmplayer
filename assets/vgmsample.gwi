@@ -1,0 +1,28 @@
+'{
+	TitleName   =vgmsample
+	TitleNameJ  =vgmsample
+	GameName    =
+	GameNameJ   =
+	SystemName  =arduino-vgmplayer
+	SystemNameJ =arduino-vgmplayer
+	Composer    =
+	ComposerJ   =
+	ReleaseDate =2018/06/01
+	Converted   =
+	Notes       =
+
+	ClockCount  =192
+}
+
+'@ M 110
+   AR  DR  SR  RR  SL  TL  KS  ML  DT1 DT2 AME
+'@ 022,005,000,004,005,041,000,001,005,000,000
+'@ 016,008,008,008,002,000,001,002,005,000,000
+'@ 031,018,000,004,010,044,000,008,009,000,000
+'@ 031,009,007,008,002,003,001,001,009,000,000
+   ALG FB
+'@ 004,007
+
+'X6 T160@110l4 r1r1r1r1 cdefedcrefgagfercrcrcrcrc8c8d8d8e8e8f8f8edc
+'X7 T160@110l4 r1r1     cdefedcrefgagfercrcrcrcrc8c8d8d8e8e8f8f8edc
+'X8 T160@110l4          cdefedcrefgagfercrcrcrcrc8c8d8d8e8e8f8f8edc
