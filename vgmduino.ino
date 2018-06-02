@@ -80,21 +80,21 @@ void pause(long samples){
 
 void setup() {
     Serial.begin(9600);
-	YM2151.begin();
-	delay(400);
+    YM2151.begin();
+    delay(400);
 }
 
 void loop() {
-	Serial.println("start\n");
+    Serial.println("start\n");
 
     while(!vgmend) {
         vgmplay();
     }
 
-	Serial.println(vgmpos);
-	Serial.println("stop\n");
-	Serial.end();
+    Serial.println(vgmpos);
+    Serial.println("stop\n");
+    Serial.end();
     while(true) {
-		asm volatile("nop\n\t nop\n\t nop\n\t nop\n\t");
+        asm volatile("nop\n\t nop\n\t nop\n\t nop\n\t");
     }
 }
