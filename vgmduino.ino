@@ -11,14 +11,19 @@ bool vgmend = false;
 unsigned long startTime;
 unsigned long duration;
 
-unsigned int read16() {
-    return getByte() + (getByte() << 8);
-}
-
 uint8_t getByte() {
     uint8_t ret = pgm_read_byte_near(vgmdata + vgmpos);
     vgmpos++;
     return ret;
+}
+
+unsigned int read16() {
+    return getByte() + (getByte() << 8);
+}
+
+void pause(long samples){
+    duration = ((1000.0 / (44100.0 / (float)samples)) * 1000);
+    startTime = micros();
 }
 
 void vgmplay() {
@@ -71,11 +76,6 @@ void vgmplay() {
             Serial.println("unknown command");
             break;
     }
-}
-
-void pause(long samples){
-    duration = ((1000.0 / (44100.0 / (float)samples)) * 1000);
-    startTime = micros();
 }
 
 void setup() {
