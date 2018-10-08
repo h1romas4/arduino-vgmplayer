@@ -24,6 +24,12 @@ static	const	uint8_t		YM_PIN_A0=12;
 static	const	uint8_t		YM_PIN_IC=13;
 ```
 
+```
+YM_PIN_VSS(1/11)    GND
+YM_PIN_CS(7)        GND
+YM_PIN_VDD(22)      5V
+```
+
 ### YM2151-YM3012-Audio Block
 
 @see https://www.slideshare.net/nanase_t/ym2151fm (page-28)
