@@ -36,7 +36,8 @@ YM_PIN_VDD(22)      5V
 
 ## Thanks
 
-* YM2151.cpp [Web::ooISHoo YM2151Shield](http://www.ooishoo.org/wordpress/project/ym2151shield/)
+* [Web::ooISHoo YM2151Shield](http://www.ooishoo.org/wordpress/project/ym2151shield/)
+* [YM2151.cpp](https://github.com/ooISHoo/Arduino_YM2151/blob/develop/SketchMDXPlayer/YM2151.cpp)
 * [YM2151でFM音源演奏](https://www.slideshare.net/nanase_t/ym2151fm)
 * Create VGM file [mml2vgm](https://github.com/kuma4649/mml2vgm)
 
