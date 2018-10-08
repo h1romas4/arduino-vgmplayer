@@ -27,7 +27,7 @@ static	const	uint8_t		YM_PIN_IC=13;
 ```
 YM_PIN_VSS(1/11)    GND
 YM_PIN_CS(7)        GND
-YM_PIN_VDD(22)      5V  (with 0.1uf bypass capacitor)
+YM_PIN_VDD(22)      5V  (with 0.1uF bypass capacitor)
 ```
 
 ### YM2151-YM3012-Audio Block
