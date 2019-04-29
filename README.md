@@ -2,6 +2,10 @@
 
 Play back the VGM format file with Arduino. (only YM2151)
 
+## Demo
+
+[![arduino-ym2151](assets/arduino-ym2151-03.png)](https://youtu.be/8WIUi7Xq4dI)
+
 ## Schematic
 
 ### Arduino-YM2151 Block
