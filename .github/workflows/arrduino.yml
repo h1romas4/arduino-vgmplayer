@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Build all example sketches
+    - name: Build Sketches
       uses: Legion2/arduino-builder-action@v2.0.0
       with:
+        sketchDirectory: ./
         board: "arduino:avr:uno"
