@@ -1,5 +1,7 @@
 # arduino-vgmplayer
 
+![](https://github.com/h1romas4/arduino-vgmplayer/workflows/Arduino%20CI/badge.svg)
+
 Play back the VGM format file with Arduino. (only YM2151)
 
 ## Demo
