@@ -32,6 +32,10 @@ hex2bin -r 512 0x7E00 optiboot_atmega328.hex optiboot_atmega328.bin
 
 ```
 sudo apt install gcc-avr
+# information
+avr-objdump -s -m avr5 optiboot_atmega328.hex
+avr-objdump -s -m avr5 vgmduino.hex
+# disassemble
 avr-objdump -D -m avr5 optiboot_atmega328.hex
 avr-objdump -D -m avr5 vgmduino.hex
 ```
