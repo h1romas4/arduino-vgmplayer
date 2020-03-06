@@ -15,6 +15,8 @@ https://github.com/arduino/arduino-cli
 
 ```
 arduino-cli --fqbn arduino:avr:uno compile vgmduino.ino
+# for Debug (but, not release)
+# arduino-cli compile --fqbn arduino:avr:uno --optimize-for-debug vgmduino.ino
 ```
 
 ## convert hex to binary
@@ -37,8 +39,8 @@ avr-objdump -s -m avr5 optiboot_atmega328.hex
 avr-objdump -s -m avr5 vgmduino.hex
 # disassemble
 avr-objdump -D -m avr5 optiboot_atmega328.hex
-# ignore start address
-# avr-objdump -D -m avr5 vgmduino.hex
+# disassemble set start address and show dwarf
+avr-objdump -D --start-address=0x6d68 --debugging --demangle -m avr5 vgmduino.hex > vgmduino.asm
 ```
 
 ## hash
