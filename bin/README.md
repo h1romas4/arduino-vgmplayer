@@ -37,7 +37,8 @@ avr-objdump -s -m avr5 optiboot_atmega328.hex
 avr-objdump -s -m avr5 vgmduino.hex
 # disassemble
 avr-objdump -D -m avr5 optiboot_atmega328.hex
-avr-objdump -D -m avr5 vgmduino.hex
+# ignore start address
+# avr-objdump -D -m avr5 vgmduino.hex
 ```
 
 ## hash
