@@ -73,28 +73,19 @@ void vgmplay() {
             pause((command & 0x0f) + 1);
             break;
         default:
-            Serial.println("unknown command");
             break;
     }
 }
 
 void setup() {
-    Serial.begin(9600);
     YM2151.begin();
     delay(400);
 }
 
 void loop() {
-    Serial.println("start\n");
-
     while(!vgmend) {
         vgmplay();
     }
 
-    Serial.println(vgmpos);
-    Serial.println("stop\n");
-    Serial.end();
-    while(true) {
-        asm volatile("nop\n\t nop\n\t nop\n\t nop\n\t");
-    }
+    asm volatile("nop\n\t nop\n\t nop\n\t nop\n\t");
 }
