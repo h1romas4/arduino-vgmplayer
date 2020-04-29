@@ -1048,7 +1048,7 @@ void atmega644_device::update_interrupt(int source)
 //TODO: review this!
 void atmega328_device::update_interrupt(int source)
 {
-	const CInterruptCondition &condition = s_mega644_int_conditions[source];
+	const CInterruptCondition &condition = s_int_conditions[source];
 
 	int intstate = 0;
 	if (m_r[condition.m_intreg] & condition.m_intmask)
@@ -1207,8 +1207,14 @@ void avr8_device::timer0_tick()
 		break;
 
 		case WGM02_FAST_PWM:
-		// printf("WGM02_FAST_PWM: Unimplemented timer#0 waveform generation mode\n");
-		break;
+			// printf("WGM02_FAST_PWM: Unimplemented timer#0 waveform generation mode\n");
+			// if(count == m_timer_top[0]) {
+			// TODO: hack
+			if(count == m_r[AVR8_REGIDX_OCR0A]) {
+				m_r[AVR8_REGIDX_TIFR0] |= AVR8_TIFR0_TOV0_MASK;
+				update_interrupt(AVR8_INTIDX_TOV0);
+			}
+			break;
 
 		case WGM02_PWM_PC_CMP:
 		printf("WGM02_PWM_PC_CMP: Unimplemented timer#0 waveform generation mode\n");
@@ -2904,14 +2910,11 @@ READ8_MEMBER( avr8_device::regs_r )
 		// TODO: hack
 		case AVR8_REGIDX_MCUSR:
 		case AVR8_REGIDX_MCUCR:
-		case AVR8_REGIDX_TCCR0A:
-		case AVR8_REGIDX_TCCR0B:
 		case AVR8_REGIDX_ADCSRA:
 		case AVR8_REGIDX_ADCSRB:
 		case AVR8_REGIDX_TCCR1A:
 		case AVR8_REGIDX_TCCR1B:
 		case AVR8_REGIDX_TCCR1C:
-		case AVR8_REGIDX_TCNT0:
 		case AVR8_REGIDX_OCR0A:
 		case AVR8_REGIDX_OCR0B:
 		case AVR8_REGIDX_UCSR0B:
@@ -2920,6 +2923,13 @@ READ8_MEMBER( avr8_device::regs_r )
 		case AVR8_REGIDX_TCCR2B:
 			return m_r[offset];
 
+		case AVR8_REGIDX_TCCR0A:
+			return m_r[AVR8_REGIDX_TCCR0A];	
+		case AVR8_REGIDX_TCCR0B:
+			return m_r[AVR8_REGIDX_TCCR0B];
+		case AVR8_REGIDX_TCNT0:
+			return m_r[AVR8_REGIDX_TCNT0];
+
 		case AVR8_REGIDX_TIFR0:
 		case AVR8_REGIDX_TIFR1:
 		case AVR8_REGIDX_TIFR2:
@@ -2927,6 +2937,7 @@ READ8_MEMBER( avr8_device::regs_r )
 		case AVR8_REGIDX_TIFR4:
 		case AVR8_REGIDX_TIFR5:
 			return 0b00000111;
+
 
 		default:
 //			printf("[%08X] AVR8: Unknown Register Read: 0x%03X\n", m_shifted_pc, offset);
